@@ -7,7 +7,7 @@ to run the app
 
 ### Deploy file minigame.sol in folder /solidity into folder /contracts https://remix.ethereum.org/
 
-### Change variable in file .env and variable abi in file index.js
+### Change variables in file .env and variable abi in file index.js
 
 then
 
