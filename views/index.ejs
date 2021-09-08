@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minigame</title>
+    <link rel="icon" href="/images/fa-icon.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/index.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div id="alert-conn" class="alert alert-danger text-center hide-alert">Get info wallet metamaks. Please accept
+            connect</div>
+        <h3 class="text-center">Mini game</h3>
+        <small>Your address: <span id="id_adr">Loading your address ...</span></p>
+            <form action="/register" method="post">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"
+                        required />
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="name" class="form-control" id="name" name="name" placeholder="teo em" required />
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="phone" class="form-control" id="phone" name="phone" placeholder="05536369984"
+                        required />
+                </div>
+                <button id="submit-form" class="btn btn-info text-white" type="button">register</button>
+            </form>
+            <h4>List user</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">name</th>
+                        <th scope="col">email</th>
+                        <th scope="col">phone</th>
+                        <th scope="col">address wallet</th>
+                    </tr>
+                </thead>
+                <tbody id="tb-list-user">
+                    <% users.forEach(function(user) { %>
+                        <tr>
+                            <td class="row">
+                                <%=user.name%>
+                            </td>
+                            <td>
+                                <%=user.email%>
+                            </td>
+                            <td>
+                                <%=user.phone%>
+                            </td>
+                            <td>
+                                <%=user.address_wallet%>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+            <h4>List user winner</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">name</th>
+                        <th scope="col">email</th>
+                        <th scope="col">phone</th>
+                        <th scope="col">address wallet</th>
+                        <th>type</th>
+                    </tr>
+
+                </thead>
+                <tbody id="tb-list-user-win">
+                    <% userWinners.forEach(function(user) { %>
+                        <tr>
+                            <td class="row">
+                                <%=user.name%>
+                            </td>
+                            <td>
+                                <%=user.email%>
+                            </td>
+                            <td>
+                                <%=user.phone%>
+                            </td>
+                            <td>
+                                <%=user.address_wallet%>
+                            </td>
+
+                            <% if(user.winner==="won50" ) { %>
+                                <td>50%</td>
+                                <% }else { %>
+                                    <td>100%</td>
+                                    <% } %>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+        integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+        crossorigin="anonymous"></script>
+    <script src="./scripts/web3.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+
+</html>
